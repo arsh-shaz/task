@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.task.fragments.HomeFragment"
-        android:label="HomeFragment" >
+        android:label="HomeFragment">
         <action
             android:id="@+id/action_homeFragment_to_addNoteFragment"
             app:destination="@id/addNoteFragment" />
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/addNoteFragment"
         android:name="com.example.task.fragments.AddNoteFragment"
-        android:label="AddNoteFragment" >
+        android:label="AddNoteFragment">
         <action
             android:id="@+id/action_addNoteFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -26,9 +26,14 @@
     <fragment
         android:id="@+id/editNoteFragment"
         android:name="com.example.task.fragments.EditNoteFragment"
-        android:label="EditNoteFragment" >
+        android:label="EditNoteFragment">
         <action
             android:id="@+id/action_editNoteFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+
+        <argument
+            android:name="task"
+            app:argType="com.example.task.model.Task"
+            app:nullable="true" />
     </fragment>
 </navigation>
