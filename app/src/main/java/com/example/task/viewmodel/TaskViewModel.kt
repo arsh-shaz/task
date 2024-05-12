@@ -23,6 +23,6 @@ class TaskViewModel(app: Application, private val taskRepository: TaskRepository
 
     fun getAllTasks() = taskRepository.getAllTasks()
 
-    fun searchNote(query: String?) = taskRepository.searchTask(query)
+    fun searchTask(query: String?) = taskRepository.searchTask(query)
 
 }
