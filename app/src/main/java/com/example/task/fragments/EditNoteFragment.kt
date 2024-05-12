@@ -53,14 +53,17 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider {
 
         binding.editNoteTitle.setText(currentTask.title)
         binding.editNoteDesc.setText(currentTask.content)
+        binding.editNotePriority.setText(currentTask.priority)
 
         binding.editNoteFab.setOnClickListener {
             val taskTitle = binding.editNoteTitle.text.toString().trim()
             val taskDesc = binding.editNoteDesc.text.toString().trim()
+            val taskPriority = binding.editNotePriority.text.toString().trim()
 
             if (taskTitle.isNotEmpty()) {
-                val task = Task(currentTask.id, taskTitle, taskDesc)
+                val task = Task(currentTask.id, taskTitle, taskDesc, taskPriority)
                 taskViewModel.updateTask(task)
+                Toast.makeText(context, "Task Updated", Toast.LENGTH_SHORT).show()
                 view.findNavController().popBackStack(R.id.homeFragment, false)
             } else {
                 Toast.makeText(context, "Please enter task title", Toast.LENGTH_SHORT)

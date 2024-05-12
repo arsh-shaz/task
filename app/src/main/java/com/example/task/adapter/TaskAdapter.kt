@@ -16,7 +16,7 @@ class TaskAdapter : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     private val differCallback = object : DiffUtil.ItemCallback<Task>() {
         override fun areItemsTheSame(oldItem: Task, newItem: Task): Boolean {
-            return oldItem.id == newItem.id && oldItem.content == newItem.content && oldItem.title == newItem.title
+            return oldItem.id == newItem.id && oldItem.content == newItem.content && oldItem.title == newItem.title && oldItem.priority == newItem.priority
         }
 
         override fun areContentsTheSame(oldItem: Task, newItem: Task): Boolean {
@@ -41,8 +41,9 @@ class TaskAdapter : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
         holder.itemBinding.noteTitle.text = currentTask.title
         holder.itemBinding.noteDesc.text = currentTask.content
+        holder.itemBinding.notePriority.text = currentTask.priority
 
-        holder.itemView.setOnClickListener{
+        holder.itemView.setOnClickListener {
             val direction = HomeFragmentDirections.actionHomeFragmentToEditNoteFragment(currentTask)
             it.findNavController().navigate(direction)
         }
